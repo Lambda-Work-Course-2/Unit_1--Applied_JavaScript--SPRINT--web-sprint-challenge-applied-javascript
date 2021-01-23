@@ -19,10 +19,8 @@ const Header = (title, date, temp) => {
 //return the thing!
      return(headDiv);
 }
-
 const headerAppender = (selector) => {
      parent= document.querySelector(selector);
      parent.appendChild(Header('TITLE', 'Today', 'cold'));
 }
-
 export { Header, headerAppender }
