@@ -84,3 +84,17 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
      To gain the functionally of an Array that the Nodelist does not have by default (push/pop/ect) .
 5. What is a component?
      Components are small(ish), DRY, reusable code that help make up larger code. (Ok so some components are not small at all and are big huge monsters that could eat an elephant)
+
+
+
+
+
+
+
+
+
+
+
+
+this new submit thing sucks.. 
+
