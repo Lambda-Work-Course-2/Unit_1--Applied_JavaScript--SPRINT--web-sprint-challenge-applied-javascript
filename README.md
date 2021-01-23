@@ -40,7 +40,7 @@ In meeting the minimum viable product (MVP) specifications listed below, your pr
 Your must complete all the following steps:
 
 - [x ] Step 0 is to link `src/index.js` to the `src/index.html` file using a script tag.
-- [ ] Steps 1 and 2 are explained inside the `src/components/header.js` file.
+- [x] Steps 1 and 2 are explained inside the `src/components/header.js` file.
 - [x] Steps 3 and 4 are explained inside the `src/components/tabs.js` file.
 - [ ] Steps 5 and 6 are explained inside the `src/components/card.js` file.
 
@@ -75,7 +75,12 @@ There are two possible ways to submit this project to Canvas. Lambda Staff will 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What is the DOM?
+     Stands for “Document Object Model” It is a tree like structure created from HTML. The tree contains nodes that are objects. These nodes/objects represent parts of the document and can be manipulated (ex. removed).
 2. What is an event?
+     DOM event is an action taken that can be watched for (via event listeners). When an event happens you can trigger code.
 3. What is an event listener?
+     Event listeners wait / watch for its assigned event to happen were it has been added.
 4. Why would we convert a NodeList into an Array?
+     To gain the functionally of an Array that the Nodelist does not have by default (push/pop/ect) .
 5. What is a component?
+     Components are small(ish), DRY, reusable code that help make up larger code. (Ok so some components are not small at all and are big huge monsters that could eat an elephant)
