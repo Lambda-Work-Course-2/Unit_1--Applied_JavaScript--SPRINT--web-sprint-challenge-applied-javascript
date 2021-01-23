@@ -1,33 +1,54 @@
+import axios from 'axios';
 const Card = (article) => {
-  // TASK 5
-  // ---------------------
-  // Implement this function, which should return the markup you see below.
-  // It takes as its only argument an "article" object with `headline`, `authorPhoto` and `authorName` properties.
-  // The tags used, the hierarchy of elements and their attributes must match the provided markup exactly!
-  // The text inside elements will be set using their `textContent` property (NOT `innerText`).
-  // Add a listener for click events so that when a user clicks on a card, the headline of the article is logged to the console.
-  //
-  // <div class="card">
-  //   <div class="headline">{ headline }</div>
-  //   <div class="author">
-  //     <div class="img-container">
-  //       <img src={ authorPhoto }>
-  //     </div>
-  //     <span>By { authorName }</span>
-  //   </div>
-  // </div>
-  //
+//Create Elements
+     const mainDiv = document.createElement('div'); // <div class="card">
+     const headlineDiv = document.createElement('div'); //   <div class="headline">{ headline }</div>
+     const authorDiv = document.createElement('div');//   <div class="author">
+     const imgDiv = document.createElement('div');  //     <div class="img-container">
+     const cardImg = document.createElement('img');//       <img src={ authorPhoto }>
+     const bylineSpan = document.createElement('span');//     <span>By { authorName }</span>
+//adding some class
+     mainDiv.classList.add('card'); 
+     headlineDiv.classList.add('headline');
+     authorDiv.classList.add('author');
+     imgDiv.classList.add('img-container');
+//Add content
+     headlineDiv.textContent= article.headline; 
+     cardImg.src = article.authorPhoto;       
+     console.log('file: card.js ~ line 18 ~ Card ~ cardImg.src', cardImg.src);
+
+     bylineSpan.textContent= article.authorName;
+//Append the childs
+     mainDiv.appendChild(headlineDiv);
+     mainDiv.appendChild(authorDiv);
+     authorDiv.appendChild(imgDiv);
+     authorDiv.appendChild(bylineSpan);
+//Add event Listener
+     mainDiv.addEventListener('click', ()=>{
+          console.log(article.headline);
+     })
+     //return the thing!
+     return(mainDiv);
 }
 
 const cardAppender = (selector) => {
-  // TASK 6
-  // ---------------------
-  // Implement this function that takes a css selector as its only argument.
-  // It should obtain articles from this endpoint: `https://lambda-times-api.herokuapp.com/articles`
-  // However, the articles do not come organized in a single, neat array. Inspect the response closely!
-  // Create a card from each and every article object in the response, using the Card component.
-  // Append each card to the element in the DOM that matches the selector passed to the function.
-  //
-}
+  axios.get('https://lambda-times-api.herokuapp.com/articles')
+  .then(returnedData => { //then give the returned data a name so we can do things with it. 
+          console.log('file: card.js ~  returnedData', returnedData.data.articles);	//console log to see what is returned   
+     const parent= document.querySelector(selector);    
+     const dataKeys = Object.keys(returnedData.data.articles); 
 
+          for (let i = 0; i <dataKeys.length; i++) { //loops over object
+          const type = dataKeys[i]; 
+          returnedData.data.articles[`${type}`].forEach(article => {
+          parent.appendChild(Card(article))})
+     }})
+.catch(error =>{
+     console.log('file: card.js ~ error', error);
+     })
+.finally(()=>{
+     console.log("file: card.js ~ Done")
+}); 
+
+}
 export { Card, cardAppender }
