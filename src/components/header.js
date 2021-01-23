@@ -13,25 +13,16 @@ const Header = (title, date, temp) => {
      h1Title.textContent = title;
      tempSpan.textContent = temp;
 //Add to patents
-     headDiv.appendChild('dateSpan');
-     headDiv.appendChild('h1Title');
-     headDiv.appendChild('tempSpan');
-//TODO:Why is this returning variable names not passed values??? find that typo! 
-     console.log('file: header.js ~ line 22 ~ Header ~ headDiv', headDiv);
+     headDiv.appendChild(dateSpan);
+     headDiv.appendChild(h1Title);
+     headDiv.appendChild(tempSpan);
 //return the thing!
      return(headDiv);
 }
 
-    //TODO: REMOVE
-Header("test","today","cold");
-
-
-
-
 const headerAppender = (selector) => {
- 
      parent= document.querySelector(selector);
-     parent.appendChild(Header());
+     parent.appendChild(Header('TITLE', 'Today', 'cold'));
 }
 
 export { Header, headerAppender }
