@@ -96,5 +96,5 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 
 
-this new submit thing sucks.. 
+this new submit thing sucks.. SUPER SUCKS
 
